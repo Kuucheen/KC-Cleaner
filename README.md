@@ -6,7 +6,7 @@ A open source hit/combo cleaner and a custom combo cleaner
 
 
 Features:
-
+  
   • Auto Cleaning
     ➜ Cleans ads and checks correctivity of combos
     
@@ -22,4 +22,6 @@ Requirements:
   • Python 3
   • sty (automatically installs if not installed)
 
-Share it if you want to
+
+
+if you have questions dm me
