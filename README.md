@@ -6,25 +6,25 @@ A open source hit/combo cleaner and a custom combo cleaner
 
 
 Features:
-  
-  • Auto Cleaning
-  
-    ➜ Cleans ads and checks correctivity of combos
+ 
+    • Auto Cleaning
+
+      ➜ Cleans ads and checks correctivity of combos
     
-  • Custom Cleaning
+    • Custom Cleaning
   
-    ➜ Cleans everything after a certain symbol
+      ➜ Cleans everything after a certain symbol
     
-  • Showcase
+    • Showcase
   
-    ➜ Shows three random hits after a clean
+      ➜ Shows three random hits after a clean
     
     
 Requirements:
   
-  • Python 3
+    • Python 3
   
-  • sty (automatically installs if not installed)
+    • sty (automatically installs if not installed)
 
 
 
