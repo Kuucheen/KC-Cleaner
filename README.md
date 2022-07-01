@@ -2,7 +2,7 @@
 A open source hit/combo cleaner and a custom combo cleaner
 
 
-![grafik](https://user-images.githubusercontent.com/70746714/176908715-e1df1573-2b2b-4829-ad17-30f90dbb320e.png)
+![grafik](https://user-images.githubusercontent.com/70746714/176910684-954b43fc-db63-4c19-aaa8-6784eb348518.png)
 
 
 Features:
@@ -21,3 +21,5 @@ Requirements:
   
   • Python 3
   • sty (automatically installs if not installed)
+
+Share it if you want to
