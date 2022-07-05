@@ -1,6 +1,4 @@
-import os, sys
-import time
-import ctypes
+import os, sys, time, ctypes, re
 from random import randrange
 
 try:
@@ -25,6 +23,7 @@ def title():
 
 
 def selection():
+    terminal()
     print(f"""
     {fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Autocleaner
     \t->  {fg(250)}Automatically cleans your combo list
@@ -48,7 +47,7 @@ def selection():
             if sel == "1":
                 autocleaner(file)
             else:
-                customcleaner(file, input(f"{fg(15)}Symbol {fg(99)}>> {fg(15)}"))
+                customcleaner(file)
 
         else:
             time.sleep(3)
@@ -57,6 +56,7 @@ def selection():
 
     else:
         if sel == "3":
+            print(fg("white"), end="")
             exit()
 
         else:
@@ -74,15 +74,37 @@ def autocleaner(file: str):
         with open("[CLEAN]-"+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
             for line in inp:
-                if line.count(":") > 0 and line.count("@") > 0 and line.count(".") > 0 and line.index(":") > line.index(".") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0 and len(line[line.index("@"):line.index(".")]):
+                if line.count("@") > 0:
+                    line = line.replace("\n", "")
+                    line = re.split(' |:', line)
+                    count = 0
 
-                    try:
-                        output.write(line[:line.index(" ")])
-                    except ValueError:
-                        output.write(line.replace("\n", ""))
+                    for i in line:
+                        if i.count("@") == 1:
+                            line = f"{line[count]}:{line[count+1]}"
+                            continue
+                        else:
+                            count += 1
 
-                    output.write("\n")
+                    if line.count(":") > 0 and line.count("@") > 0 and line.count(".") > 0 and line.index(":") > line.index(".") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0 and len(line[line.index("@"):line.index(".")]):
+                        output.write(f"{line}\n")
     
+    with open("[CLEAN]-"+file.split("\\")[-1],encoding="utf-8") as inp:
+        lines = inp.readlines()
+
+        with open("[CLEAN]-"+file.split("\\")[-1], "w", encoding="utf-8") as output:
+
+            duplicates = []
+
+            for i in lines:
+                if i not in duplicates:
+                    output.write(i)
+                    duplicates.append(i)
+
+    with open("[CLEAN]-"+file.split("\\")[-1],encoding="utf-8") as inp: 
+        lines = inp.readlines()
+
+    terminal(f"| Remaining hits: {len(lines)}")
     title()
     notification("Done!", "*")
     time.sleep(0.3)
@@ -90,21 +112,44 @@ def autocleaner(file: str):
             
 
 
-def customcleaner(file: str, symbol: str):
+def customcleaner(file: str):
+    title()
+    print(f"\n\t{fg(250)}Clean everything\n\n{fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Before\t\t{fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}After\n")
+    mode = input(f"{fg(15)}Mode {fg(99)}>> {fg(15)}")
 
-    temp = file.split("\\")
-    notification(f"{fg(15)}Cleaning{fg(99)} {temp[-1]}", "*")
+
+
 
     with open(file) as inp:
         with open("[CLEAN]-"+file.split("\\")[-1], "w") as output:
 
-            for i in inp:
-                try:
-                    output.write(i[:i.index(symbol)])
-                except ValueError:
-                    output.write(i.replace("\n",""))
+            if mode == "1" or mode == "2":
+                title()
+                symbol = input(f"\n{fg(15)}Symbol {fg(99)}>> {fg(15)}")
+                temp = file.split("\\")
+                notification(f"{fg(15)}Cleaning{fg(99)} {temp[-1]}", "*")
+                if mode == "1":
+                    for i in inp:
+                        try:
+                            output.write(i[i.index(symbol)+len(symbol):])
+                        except ValueError:
+                            output.write(i.replace("\n",""))
 
-                output.write("\n")
+                elif mode == "2":
+                    for i in inp:
+                        try:
+                            output.write(i[:i.index(symbol)])
+                        except ValueError:
+                            output.write(i.replace("\n",""))
+
+                        output.write("\n")
+
+            else:
+                notification("No mode selected")
+                time.sleep(2)
+                title()
+                selection()
+
 
     title()
     notification("Done!", "*")
@@ -141,15 +186,7 @@ def showcase(file:str = None, hits:list = None):
             else:
                 notification("Showed every hit in the cleaned file", "*")
 
-    print(f"""
-    {fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Refresh
-    \t->  {fg(250)}Show other three hits
-
-    {fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}Costum Cleaner
-    \t->  {fg(250)}still seeing something? Try Costum Cleaner
-
-    {fg(250)}[{fg(99)}3{fg(250)}] {fg(99)}Menu
-    """)
+    print(f"\n{fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Refresh\t{fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}Costum Cleaner\t{fg(250)}[{fg(99)}3{fg(250)}] {fg(99)}Menu\n")
 
     sel = input(f"{fg(15)}>> {fg(99)}")
     
@@ -159,7 +196,7 @@ def showcase(file:str = None, hits:list = None):
             showcase(None, hits)
 
         elif sel == "2":
-            customcleaner(file, input(f"{fg(15)}Symbol {fg(99)}>> {fg(15)}"))
+            customcleaner(file)
 
         elif sel == "3":
             title()
@@ -195,9 +232,8 @@ def checkfile(file:str) -> bool:
 def notification(string:str, symb:str = "!"):
     print(f"\n{fg(15)}[{fg(99)}{symb}{fg(15)}] {string}\n")
 
-    
-ctypes.windll.kernel32.SetConsoleTitleW("KC Cleaner | By Kuchen#2472")
-
+def terminal(string:str = ""):
+    ctypes.windll.kernel32.SetConsoleTitleW("KC Cleaner | By Kuchen#2472 " + string)
 
 title()
 selection()     
