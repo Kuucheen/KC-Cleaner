@@ -13,7 +13,7 @@ Features:
     
     • Custom Cleaning
   
-      ➜ Cleans everything after a certain symbol
+      ➜ Cleans everything after/before a certain symbol
     
     • Showcase
   
