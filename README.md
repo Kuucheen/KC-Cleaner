@@ -1,6 +1,4 @@
 # KC-Cleaner
-![](https://komarev.com/ghpvc/?username=Kuucheen)
-
 A open source hit/combo cleaner and a custom combo cleaner
 
 
