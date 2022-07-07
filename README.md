@@ -9,7 +9,7 @@ Features:
  
     • Auto Cleaning
 
-      ➜ Cleans ads and checks correctivity of combos & removes duplicates
+      ➜ Cleans combos, checks correctivity of combos & removes duplicates
     
     • Custom Cleaning
   
