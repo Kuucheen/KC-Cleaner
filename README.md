@@ -1,5 +1,5 @@
 # KC-Cleaner
-An open source hit/combo cleaner and a custom combo cleaner
+An open-source hit/combo cleaner and a custom combo cleaner
 
 
 ![grafik](https://user-images.githubusercontent.com/70746714/176910684-954b43fc-db63-4c19-aaa8-6784eb348518.png)
