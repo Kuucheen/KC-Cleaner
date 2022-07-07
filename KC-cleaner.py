@@ -1,3 +1,4 @@
+#by Kuchen#2472
 import os, sys, time, ctypes, re
 from random import randrange
 
@@ -41,7 +42,7 @@ def selection():
 
         title()
         global file
-        file = input(f"\n\n{fg(15)}File {fg(99)} >>  {fg(15)}")
+        file = input(f"\n\n{fg(15)}File {fg(99)} >>  {fg(15)}").replace("\"", "")
 
         if checkfile(file):
             if sel == "1":
@@ -66,7 +67,7 @@ def selection():
 
 
 def autocleaner(file: str):
-
+    timer = time.time()
     title()
     temp = file.split("\\")
     notification(f"{fg(15)}Cleaning{fg(99)} {temp[-1]}", "*")
@@ -104,7 +105,7 @@ def autocleaner(file: str):
     with open("[CLEAN]-"+file.split("\\")[-1],encoding="utf-8") as inp: 
         lines = inp.readlines()
 
-    terminal(f"| Remaining hits: {len(lines)}")
+    terminal(f"| Remaining hits: {len(lines)} | Finished in {(time.time() - timer)*10:.2f}ms")
     title()
     notification("Done!", "*")
     time.sleep(0.3)
@@ -113,6 +114,8 @@ def autocleaner(file: str):
 
 
 def customcleaner(file: str):
+
+    timer = time.time()
     title()
     print(f"\n\t{fg(250)}Clean everything\n\n{fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Before\t\t{fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}After\n")
     mode = input(f"{fg(15)}Mode {fg(99)}>> {fg(15)}")
@@ -151,6 +154,8 @@ def customcleaner(file: str):
                 selection()
 
 
+    
+    terminal(f"| Finished in {(time.time() - timer)*10:.2f}ms")
     title()
     notification("Done!", "*")
     time.sleep(0.3)
@@ -219,10 +224,6 @@ def checkfile(file:str) -> bool:
 
     except FileNotFoundError:
         notification("File was not found!")
-        return False
-
-    except OSError:
-        notification("Make sure your file is in a directory without a space in its name!")
         return False
 
     else:
