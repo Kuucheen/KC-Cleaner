@@ -42,7 +42,9 @@ def selection():
 
         title()
         global file
-        file = input(f"\n\n{fg(15)}File {fg(99)} >>  {fg(15)}").replace("\"", "")
+        file = input(f"\n\n{fg(15)}File {fg(99)} >>  {fg(15)}")
+        if file.count("\"") > 1:
+            file = file[1:len(file)-1]
 
         if checkfile(file):
             if sel == "1":
@@ -101,11 +103,13 @@ def autocleaner(file: str):
                 if i not in duplicates:
                     output.write(i)
                     duplicates.append(i)
+    
+    timer = (time.time() - timer)*10
 
     with open("[CLEAN]-"+file.split("\\")[-1],encoding="utf-8") as inp: 
         lines = inp.readlines()
 
-    terminal(f"| Remaining hits: {len(lines)} | Finished in {(time.time() - timer)*10:.2f}ms")
+    terminal(f"| Remaining hits: {len(lines)} | Finished in {timer:.2f}ms")
     title()
     notification("Done!", "*")
     time.sleep(0.3)
