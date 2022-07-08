@@ -74,7 +74,7 @@ def autocleaner(file: str):
     temp = file.split("\\")
     notification(f"{fg(15)}Cleaning{fg(99)} {temp[-1]}", "*")
     with open(file, encoding="utf-8") as inp:
-        with open("[CLEAN]-"+file.split("\\")[-1], "w", encoding="utf-8") as output:
+        with open("[CLEAN] "+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
             for line in inp:
                 if line.count("@") > 0:
@@ -92,10 +92,10 @@ def autocleaner(file: str):
                     if line.count(":") > 0 and line.count("@") > 0 and line.count(".") > 0 and line.index(":") > line.index(".") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0 and len(line[line.index("@"):line.index(".")]):
                         output.write(f"{line}\n")
     
-    with open("[CLEAN]-"+file.split("\\")[-1],encoding="utf-8") as inp:
+    with open("[CLEAN] "+file.split("\\")[-1],encoding="utf-8") as inp:
         lines = inp.readlines()
 
-        with open("[CLEAN]-"+file.split("\\")[-1], "w", encoding="utf-8") as output:
+        with open("[CLEAN] "+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
             duplicates = []
 
@@ -106,7 +106,7 @@ def autocleaner(file: str):
     
     timer = (time.time() - timer)*10
 
-    with open("[CLEAN]-"+file.split("\\")[-1],encoding="utf-8") as inp: 
+    with open("[CLEAN] "+file.split("\\")[-1],encoding="utf-8") as inp: 
         lines = inp.readlines()
 
     terminal(f"| Remaining hits: {len(lines)} | Finished in {timer:.2f}ms")
@@ -128,7 +128,7 @@ def customcleaner(file: str):
 
 
     with open(file) as inp:
-        with open("[CLEAN]-"+file.split("\\")[-1], "w") as output:
+        with open("[CLEAN] "+file.split("\\")[-1], "w") as output:
 
             if mode == "1" or mode == "2":
                 title()
@@ -172,7 +172,7 @@ def showcase(file:str = None, hits:list = None):
     time.sleep(2)
     if type(file) == str and hits == None:
 
-        with open("[CLEAN]-"+file.split("\\")[-1], encoding="utf-8") as inp:
+        with open("[CLEAN] "+file.split("\\")[-1], encoding="utf-8") as inp:
             hits = inp.readlines()
 
         for count in range(1,4):
