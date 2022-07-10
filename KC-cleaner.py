@@ -30,7 +30,7 @@ def selection():
     \t->  {fg(250)}Automatically cleans your combo list
 
     {fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}Costum Cleaner
-    \t->  {fg(250)}Removes everything after a certain symbol
+    \t->  {fg(250)}Removes everything after/before a certain symbol
 
     {fg(250)}[{fg(99)}3{fg(250)}] {fg(99)}Exit\n
     """)
@@ -85,7 +85,7 @@ def autocleaner(file: str):
                     for i in line:
                         if i.count("@") == 1:
                             line = f"{line[count]}:{line[count+1]}"
-                            continue
+                            break
                         else:
                             count += 1
 
