@@ -92,9 +92,12 @@ def autocleaner(file: str):
                     if line.count(":") > 0 and line.count("@") > 0 and line.count(".") > 0 and line.index(":") > line.index(".") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0 and len(line[line.index("@"):line.index(".")]):
                         output.write(f"{line}\n")
     
+    title()
+    notification(f"{fg(15)}Removing {fg(99)}Duplicates", "*")
+
     with open("[CLEAN] "+file.split("\\")[-1],encoding="utf-8") as inp:
         lines = inp.readlines()
-
+    
         with open("[CLEAN] "+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
             duplicates = []
