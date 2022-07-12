@@ -27,7 +27,7 @@ def selection():
     terminal()
     print(f"""
     {fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Autocleaner
-    \t->  {fg(250)}Automatically cleans your combo list
+    \t->  {fg(250)}Automatically cleans your combo list and removes dupliactes
 
     {fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}Costum Cleaner
     \t->  {fg(250)}Removes everything after/before a certain symbol
@@ -96,16 +96,12 @@ def autocleaner(file: str):
     notification(f"{fg(15)}Removing {fg(99)}Duplicates", "*")
 
     with open("[CLEAN] "+file.split("\\")[-1],encoding="utf-8") as inp:
-        lines = inp.readlines()
+        lines = set(inp.readlines())
     
         with open("[CLEAN] "+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
-            duplicates = []
-
             for i in lines:
-                if i not in duplicates:
-                    output.write(i)
-                    duplicates.append(i)
+                output.write(i)
     
     timer = (time.time() - timer)*10
 
