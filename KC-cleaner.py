@@ -89,7 +89,7 @@ def autocleaner(file: str):
                         else:
                             count += 1
 
-                    if line.count(":") > 0 and line.count("@") > 0 and line.count(".") > 0 and line.index(":") > line.index(".") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0 and len(line[line.index("@"):line.index(".")]):
+                    if line.count(".") > 0 and line.index(":") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0:
                         output.write(f"{line}\n")
     
     title()
