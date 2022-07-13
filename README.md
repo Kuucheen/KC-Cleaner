@@ -27,4 +27,4 @@ Requirements:
 
 
 
-if you have questions dm me
+if you have questions or find bugs dm me
