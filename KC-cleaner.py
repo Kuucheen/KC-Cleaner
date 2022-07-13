@@ -27,7 +27,7 @@ def selection():
     terminal()
     print(f"""
     {fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Autocleaner
-    \t->  {fg(250)}Automatically cleans your combo list and removes dupliactes
+    \t->  {fg(250)}Automatically cleans your combo list and removes duplicates
 
     {fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}Costum Cleaner
     \t->  {fg(250)}Removes everything after/before a certain symbol
