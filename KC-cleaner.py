@@ -83,7 +83,7 @@ def autocleaner(file: str):
                     count = 0
 
                     for i in line:
-                        if i.count("@") == 1:
+                        if i.count("@") == 1 and i.count(".") > 0:
                             line = f"{line[count]}:{line[count+1]}"
                             break
                         else:
