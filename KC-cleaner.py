@@ -73,6 +73,7 @@ def autocleaner(file: str):
     title()
     temp = file.split("\\")
     notification(f"{fg(15)}Cleaning{fg(99)} {temp[-1]}", "*")
+    pattern=r'^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]+$'
     with open(file, encoding="utf-8") as inp:
         with open("[CLEAN] "+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
@@ -89,7 +90,7 @@ def autocleaner(file: str):
                         else:
                             count += 1
 
-                    if line.count(".") > 0 and line.index(":") > line.index("@") and len(line.split(":")[1]) > 0 and len(line.split("@")[0]) > 0:
+                    if re.match(pattern,line[:line.index(":")]):
                         output.write(f"{line}\n")
     
     title()
