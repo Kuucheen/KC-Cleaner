@@ -124,11 +124,8 @@ def customcleaner(file: str):
     print(f"\n\t{fg(250)}Clean everything\n\n{fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Before\t\t{fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}After\n")
     mode = input(f"{fg(15)}Mode {fg(99)}>> {fg(15)}")
 
-
-
-
-    with open(file) as inp:
-        with open("[CLEAN] "+file.split("\\")[-1], "w") as output:
+    with open(file, encoding="utf-8") as inp:
+        with open("[CLEAN] "+file.split("\\")[-1], "w", encoding="utf-8") as output:
 
             if mode == "1" or mode == "2":
                 title()
@@ -238,7 +235,7 @@ def notification(string:str, symb:str = "!"):
     print(f"\n{fg(15)}[{fg(99)}{symb}{fg(15)}] {string}\n")
 
 def terminal(string:str = ""):
-    ctypes.windll.kernel32.SetConsoleTitleW("KC Cleaner | By Kuchen#2472 " + string)
+    ctypes.windll.kernel32.SetConsoleTitleW("KC Cleaner | github.com/Kuucheen " + string)
 
 title()
 selection()     
