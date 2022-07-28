@@ -8,9 +8,6 @@ except ImportError:
     os.system('python -m pip install sty')
     from sty import fg
 
-if sys.platform == "win32":
-    os.system('color')
-
 def title():
     os.system("cls")
     print(f"""{fg(15)}
@@ -20,7 +17,7 @@ def title():
      \ \_\ \_\  \ \_____\    {fg(99)} \ \_____\  \ \_____\  \ \_____\  \ \_\ \_\  \ \_\\\\"\_\  \ \_____\  \ \_\ \_\ {fg(15)}
       \/_/\/_/   \/_____/    {fg(99)}  \/_____/   \/_____/   \/_____/   \/_/\/_/   \/_/ \/_/   \/_____/   \/_/ /_/ {fg(250)}
 
-    \nby {fg(99)}Kuchen#2472\n""")
+    \nby {fg(99)}github.com/Kuucheen\n""")
 
 
 def selection():
