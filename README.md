@@ -8,7 +8,7 @@ Features:
  
     • Auto Cleaning
 
-      ➜ Cleans combos, checks correctivity of combos & removes duplicates
+      ➜ Cleans combos, checks correctivity of combos & removes duplicates (only email use customcleaner for usernames)
     
     • Custom Cleaning
   
