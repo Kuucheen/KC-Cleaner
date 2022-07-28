@@ -169,25 +169,15 @@ def showcase(file:str = None, hits:list = None):
         with open("[CLEAN] "+file.split("\\")[-1], encoding="utf-8") as inp:
             hits = inp.readlines()
 
-        for count in range(1,4):
+    for count in range(1,4):
 
-            if type(hits) == list and len(hits) > 0:
-                random = randrange(len(hits))
-                notification(f"{fg(99)}-> {fg(15)}" + hits[random][:-2], count)
-                hits.remove(hits[random])
-            else:
-                notification("Showed every hit in the cleaned file", "*")
+        if type(hits) == list and len(hits) > 0:
+            random = randrange(len(hits))
+            notification(f"{fg(99)}-> {fg(15)}" + hits[random][:-2], count)
+            hits.remove(hits[random])
+        else:
+            notification("Showed every hit in the cleaned file", "*")
 
-    else:
-        for count in range(1,4):
-
-            if type(hits) == list and len(hits) > 0:
-                random = randrange(len(hits))
-                notification(f"{fg(99)}-> {fg(15)}" + hits[random][:-2], count)
-                hits.remove(hits[random])
-
-            else:
-                notification("Showed every hit in the cleaned file", "*")
 
     print(f"\n{fg(250)}[{fg(99)}1{fg(250)}] {fg(99)}Refresh\t{fg(250)}[{fg(99)}2{fg(250)}] {fg(99)}Costum Cleaner\t{fg(250)}[{fg(99)}3{fg(250)}] {fg(99)}Menu\n")
 
