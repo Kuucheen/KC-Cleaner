@@ -134,14 +134,14 @@ def customcleaner(file: str):
                         try:
                             output.write(i[i.index(symbol)+len(symbol):])
                         except ValueError:
-                            output.write(i.replace("\n",""))
+                            output.write(i)
 
                 elif mode == "2":
                     for i in inp:
                         try:
                             output.write(i[:i.index(symbol)])
                         except ValueError:
-                            output.write(i.replace("\n",""))
+                            output.write(i)
 
                         output.write("\n")
 
