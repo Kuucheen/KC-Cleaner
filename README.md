@@ -2,7 +2,7 @@
 An open-source hit/combo cleaner and a custom combo cleaner
 
 
-![grafik](https://user-images.githubusercontent.com/70746714/182049107-0afce338-2cd4-4874-844d-cd0a7bb21749.png)
+![grafik](https://user-images.githubusercontent.com/70746714/182049147-19a89cd2-c577-47b1-b88f-a57cec72b166.png)
 
 -----
 
