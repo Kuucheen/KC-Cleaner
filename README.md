@@ -4,7 +4,9 @@ An open-source hit/combo cleaner and a custom combo cleaner
 
 ![grafik](https://user-images.githubusercontent.com/70746714/181651735-58593446-e7c1-4af8-8d26-b19590f92b45.png)
 
-Features:
+-----
+
+### <p align="center">Features</p>
  
     • Auto Cleaning
 
@@ -18,8 +20,9 @@ Features:
   
       ➜ Shows three random hits after a clean
     
-    
-Requirements:
+-----
+
+### <p align="center">Requirements</p>
   
     • Python 3
   
