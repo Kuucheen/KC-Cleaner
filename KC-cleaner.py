@@ -1,4 +1,4 @@
-#by Kuchen#2472
+#by github.com/Kuucheen
 import os, sys, time, ctypes, re
 from random import randrange
 
