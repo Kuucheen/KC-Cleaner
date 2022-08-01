@@ -10,11 +10,11 @@ An open-source hit/combo cleaner and a custom combo cleaner
  
     • Auto Cleaning
 
-      ➜ Cleans combos, checks correctivity of combos & removes duplicates (only email use customcleaner for usernames)
+      ➜ Cleans combos, checks correctivity of combos & removes duplicates (only email:pass use customcleaner for user:pass)
     
     • Custom Cleaning
   
-      ➜ Cleans everything after/before a certain symbol
+      ➜ Cleans everything after/before a certain symbol you can choose
     
     • Showcase
   
